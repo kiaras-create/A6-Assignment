@@ -52,7 +52,7 @@ public class MergeSortTimer {
 
 
     }
-
+    queue.addLast(newPile);
 
 
     }
