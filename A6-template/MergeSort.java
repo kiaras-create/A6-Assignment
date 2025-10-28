@@ -92,7 +92,7 @@ public class MergeSort {
 
     // for debugging purposes, uncomment this to
     // work with a smaller number of cards:
-    cards = cards.split(cards.get(39));
+    cards = cards.split(cards.get(52));
 
     // mix up the cards
     Collections.shuffle(cards);
