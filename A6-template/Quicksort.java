@@ -40,10 +40,11 @@ public class Quicksort {
           smaller.add(curr);
           unsorted.remove(curr);
       } else {
-        // current card value = pivot so do nothing
-        // keep it in the list
+        System.out.println("current card is of equal value! moving it to the bigger cardpile, it'll still be sorted for final result");
+        bigger.add(curr);
+        unsorted.remove(curr);
       }
-    }
+    } 
 
 
     // register the partitions with the recorder
@@ -61,11 +62,16 @@ public class Quicksort {
     //   - Assemble the sorted results into a single pile
     // ***********************************************************
 
+    // recursive call to sort smaller and bigger piles
     sort(smaller, record);
+    sort(bigger, record);
     
-    
-
-
+    // add smaller pile to assembled result first 
+    // then pivot
+    // then bigger pile 
+    result.addAll(smaller);
+    result.add(pivot);
+    result.addAll(bigger);
 
 
     // record the sorted result
