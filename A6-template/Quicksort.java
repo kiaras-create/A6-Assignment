@@ -1,8 +1,11 @@
+import java.util.Collections;
 import java.util.ListIterator;
 
 public class Quicksort {
   
   public static CardPile sort(CardPile unsorted, SortRecorder record) {
+
+    record.add(unsorted);
 
     // stop condition
     // if list has 0 or 1 elements, return list as it's already sorted
@@ -14,12 +17,10 @@ public class Quicksort {
     CardPile smaller = new CardPile();
     CardPile bigger = new CardPile();
 
-    // ***********************************************************
-    // Here is where you'll do the partition part of Quicksort:
-    //   - Choose a pivot
-    //   - Partition the unsorted list into two piles
-    // ***********************************************************
+    record.add(smaller);
+    record.add(bigger);
 
+  
     // pivot will be the first element of the list
     Card pivot = unsorted.getFirst();
     // will keep track of current position in list
@@ -30,19 +31,19 @@ public class Quicksort {
     // iterates over card pile until no more cards to iterate
     while (iter.hasNext()) {
       curr = iter.next();
-      if (curr.compareTo(pivot) > 0) {
+      if (curr.compareTo(pivot) >= 0) {
         // debugging purposes
         System.out.println("current card is bigger! moving it to the bigger cardpile");
         bigger.add(curr);
-        unsorted.remove(curr);
+        iter.remove();
       } else if (curr.compareTo(pivot) < 0 ) {
           System.out.println("current card is smaller! moving it to smaller cardpile");
           smaller.add(curr);
-          unsorted.remove(curr);
+          iter.remove();
       } else {
         System.out.println("current card is of equal value! moving it to the bigger cardpile, it'll still be sorted for final result");
         bigger.add(curr);
-        unsorted.remove(curr);
+        iter.remove();
       }
     } 
 
@@ -53,18 +54,17 @@ public class Quicksort {
     record.add(bigger);
     record.next();
 
+
     // This will hold the assembled result
     CardPile result = new CardPile();
-    
-    // ***********************************************************
-    // Here is where you'll do the remaining work of Quicksort:
-    //   - Make recursive calls on the partitions
-    //   - Assemble the sorted results into a single pile
-    // ***********************************************************
+
 
     // recursive call to sort smaller and bigger piles
     sort(smaller, record);
+    record.add(smaller);
+
     sort(bigger, record);
+    record.add(bigger);
     
     // add smaller pile to assembled result first 
     // then pivot
@@ -81,4 +81,34 @@ public class Quicksort {
     // return the sorted result here
     return result;
   }
+
+    public static void main(String args[]) {
+
+    // set up a class to record and display the sorting results
+    SortRecorder recorder = new SortRecorder();
+
+    // set up the deck of cards
+    Card.loadImages(recorder);
+    CardPile cards = new CardPile(Card.newDeck(true), 2, 2);
+
+    // for debugging purposes, uncomment this to
+    // work with a smaller number of cards:
+    //cards = cards.split(cards.get(39));
+
+    // mix up the cards
+    Collections.shuffle(cards);
+   
+    // if you want to sort in array form, use:
+    // Card[] card_arr = cards.toArray(new Card[0]);
+
+    // in your program, this would be a call to a real sorting algorithm
+    cards = MergeSort.sort(cards, recorder);
+
+    // We can print out the (un)sorted result:
+    System.out.println(cards);
+
+    // make window appear showing the record
+    recorder.display("Card Sort Demo: Quick Sort");
+  }
+
 }
