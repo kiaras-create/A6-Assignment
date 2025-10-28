@@ -1,11 +1,14 @@
+import java.util.ListIterator;
+
 public class Quicksort {
   
   public static CardPile sort(CardPile unsorted, SortRecorder record) {
 
-    // ***********************************************************
-    // Here is where you'll check the stop condition and return
-    // if it is satisfied.
-    // ***********************************************************
+    // stop condition
+    // if list has 0 or 1 elements, return list as it's already sorted
+    if (unsorted.size() == 0 || unsorted.size() == 1) {
+      return unsorted;
+    }
     
     // Here are the two partitions you will be creating
     CardPile smaller = new CardPile();
@@ -16,8 +19,33 @@ public class Quicksort {
     //   - Choose a pivot
     //   - Partition the unsorted list into two piles
     // ***********************************************************
-    Card pivot = null;  // edit this!
-    
+
+    // pivot will be the first element of the list
+    Card pivot = unsorted.getFirst();
+    // will keep track of current position in list
+    ListIterator<Card> iter = unsorted.listIterator();
+    // move iterator to go past the pivot
+    Card curr = iter.next();
+
+    // iterates over card pile until no more cards to iterate
+    while (iter.hasNext()) {
+      curr = iter.next();
+      if (curr.compareTo(pivot) > 0) {
+        // debugging purposes
+        System.out.println("current card is bigger! moving it to the bigger cardpile");
+        bigger.add(curr);
+        unsorted.remove(curr);
+      } else if (curr.compareTo(pivot) < 0 ) {
+          System.out.println("current card is smaller! moving it to smaller cardpile");
+          smaller.add(curr);
+          unsorted.remove(curr);
+      } else {
+        // current card value = pivot so do nothing
+        // keep it in the list
+      }
+    }
+
+
     // register the partitions with the recorder
     record.add(smaller);
     record.add(pivot);
@@ -32,6 +60,13 @@ public class Quicksort {
     //   - Make recursive calls on the partitions
     //   - Assemble the sorted results into a single pile
     // ***********************************************************
+
+    sort(smaller, record);
+    
+    
+
+
+
 
     // record the sorted result
     record.add(result);
