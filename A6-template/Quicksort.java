@@ -33,15 +33,15 @@ public class Quicksort {
       curr = iter.next();
       if (curr.compareTo(pivot) >= 0) {
         // debugging purposes
-        System.out.println("current card is bigger! moving it to the bigger cardpile");
+        // System.out.println("current card is bigger! moving it to the bigger cardpile");
         bigger.add(curr);
         iter.remove();
       } else if (curr.compareTo(pivot) < 0 ) {
-          System.out.println("current card is smaller! moving it to smaller cardpile");
+          // System.out.println("current card is smaller! moving it to smaller cardpile");
           smaller.add(curr);
           iter.remove();
       } else {
-        System.out.println("current card is of equal value! moving it to the bigger cardpile, it'll still be sorted for final result");
+        // System.out.println("current card is of equal value! moving it to the bigger cardpile, it'll still be sorted for final result");
         bigger.add(curr);
         iter.remove();
       }
