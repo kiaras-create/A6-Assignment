@@ -26,12 +26,12 @@ public class SelectionSort {
     // ***********************************************************
 
     while(!unsorted.isEmpty()){ //while the unsorted list is not empty
-      Card smallest = unsorted.peek(); // take a look a the first card in the unsorted pile
+      Card smallest = unsorted.pop(); // take a look a the first card in the unsorted pile
       CardPile temp = new CardPile(); // make a temporary list to hold the cards
 
 
       while(!unsorted.isEmpty()){ //while the unsorted list is not empty
-        Card current = unsorted.peek(); // take a look at the current card we are on 
+        Card current = unsorted.pop(); // take a look at the current card we are on 
 
         if(current.compareTo(smallest) < 0){ // if this current card we are on is less than the smallest card aka the beginning card
           temp.add(smallest); // add the smallest (which is the card with bigger value) to the temporary list
@@ -93,4 +93,4 @@ public class SelectionSort {
 }
 
  
-}
+
