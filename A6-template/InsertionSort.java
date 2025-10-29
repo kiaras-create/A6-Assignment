@@ -3,7 +3,7 @@ import java.util.Collections;
 public class InsertionSort {
   
   /**
-   * Sorts a CardPile using the insertion sort algorithm
+   * Sorts a CardPile by insertion sort
    * @param unsorted card pile
    * @param record the SortRecorder to visualize each step
    * @return sorted card pile
