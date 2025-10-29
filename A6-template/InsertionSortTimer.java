@@ -6,7 +6,7 @@ public class InsertionSortTimer {
      * @return sorted card pile
      */
 
-    //sorts a CardPile using insertion sort without any recording
+    //sorts a CardPile using insertion sort
     public static CardPile sort(CardPile unsorted){
 
         CardPile sorted = new CardPile();
