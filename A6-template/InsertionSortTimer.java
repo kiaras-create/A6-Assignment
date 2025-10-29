@@ -1,5 +1,11 @@
 public class InsertionSortTimer {
 
+    /**
+     * Sorts a CardPile by insertion sort
+     * @param unsorted card pile
+     * @return sorted card pile
+     */
+
     //sorts a CardPile using insertion sort without any recording
     public static CardPile sort(CardPile unsorted){
 
