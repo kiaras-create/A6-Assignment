@@ -1,6 +1,10 @@
 import java.util.ArrayDeque;
 import java.util.Collections;
-
+/**
+ * @param unsorted
+ * @param record
+ * @return queue.remove() sorted lists
+ */
 public class MergeSort {
   
   public static CardPile sort(CardPile unsorted, SortRecorder record) {
@@ -21,33 +25,37 @@ public class MergeSort {
     CardPile pile2 = queue.removeFirst();
     CardPile newPile = new CardPile();
         
-
+      // Compare card values
       while((!pile2.isEmpty() && !pile1.isEmpty())){
         Card card1 = pile1.peekFirst();
         Card card2 = pile2.peekFirst();
+        //if card 1 is smaller than card 2
         if (card1.compareTo(card2) > 0){
-          //merge(card1, card2)
+          //merge(card1)
           newPile.add(pile2.removeFirst());
           }
-            
+          //if card 2 is smaller than card 1
         else if (card1.compareTo(card2)< 0){
-          //merge(card2,card1)
+          //merge(card2)
           newPile.add(pile1.removeFirst());
             }
+          // if card 1 and card 2 are equal
         else if(card1.compareTo(card2) == 0){
-          //merge(card1,card2)
+          //merge(card1)
           newPile.add(pile1.removeFirst());
 
         }
     
         }
 
+    // Adds any left over cards from pile 1
     if (!pile1.isEmpty()){
       while (!pile1.isEmpty()){
         newPile.add(pile1.removeFirst());
       }
                
     }
+    //Adds left over cards from pile 2
     if (!pile2.isEmpty()){
       while (!pile2.isEmpty()){
         newPile.add(pile2.removeFirst());
@@ -55,6 +63,7 @@ public class MergeSort {
 
 
     }
+
     record.next(); // tell it this is a new step
     record.add(newPile); // the allegedly sorted pile
     queue.addLast(newPile);
