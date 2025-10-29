@@ -13,7 +13,7 @@ Any references used besides JavaDoc and course materials:
 
 What did you notice about the differences in runtime across algorithms as you changed the number of cards you were sorting? If you had to split them into "slower" algorithms vs "faster" algorithms, which would you put in each category?
 
-Victoria Reyes Borges - For the smaller piles, the algorithms seemed to go finished quickly but when there were bigger piles, they got slower. Selection adn insertion sort were slower (O(n^2)), while Quicksort and merge sort were faster (O(n log n)).
+Victoria Reyes Borges - For the smaller piles, the algorithms seemed to finish quickly but when there were bigger piles, they got slower. Selection and insertion sort were slower (O(n^2)) when the piles got bigger, but they went quickly with small piles. While Quicksort and merge sort were faster (O(n log n)) with small and big piles.
 
 Shakila Jafari - When I tried sorting bigger decks like 10k, 20k, and 40k cards, I noticed insertion sort got way slower as the number of cards went up. Doubling the cards didn’t just double the time, it made it take even longer! So,for big data we’d never use insertion sort, but for small lists it’s totally fine and it works pretty fast. 
 
