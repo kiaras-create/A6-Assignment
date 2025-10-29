@@ -62,7 +62,11 @@ public class InsertionSort {
     // set up the deck of cards
     Card.loadImages(recorder);
     CardPile cards =  new CardPile(Card.newDeck(true), 2, 2);
-
+    
+    // for debugging purposes, uncomment this to
+    // work with a smaller number of cards:
+    // cards = cards.split(cards.get(39));
+    
     // mix up the cards
     Collections.shuffle(cards);
     
