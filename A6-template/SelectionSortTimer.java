@@ -1,4 +1,9 @@
 public class SelectionSortTimer {
+  /**
+   * sorts unsorted pile using selection sort algorithm and keeps track of time
+   * @param unsorted card pile
+   * @return sorted pile
+   */
     public static CardPile sort(CardPile unsorted) {
             
         // Here is the result list you will be creating

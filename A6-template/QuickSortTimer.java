@@ -4,7 +4,7 @@ import java.util.ListIterator;
 public class QuickSortTimer {
 
  /**
-  * sorts unsorted card pile into algorithm
+  * sorts unsorted card pile using quick sort algorithm and keeps track of time
   * @param unsorted card pile
   * @return a sorted pile
   */
