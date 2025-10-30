@@ -1,8 +1,9 @@
 import java.util.ArrayDeque;
 import java.util.Collections;
 /**
- * @param unsorted
- * @param record
+ * sorts unsorted card pile using merge sort algorithm
+ * @param unsorted card pile
+ * @param record records movement of cards 
  * @return queue.remove() sorted card pile
  */
 public class MergeSort {

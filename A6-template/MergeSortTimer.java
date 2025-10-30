@@ -2,6 +2,11 @@ import java.util.ArrayDeque;
 
 public class MergeSortTimer {
 
+  /**
+   * sorts unsorted card pile using merge sort algorithm and keeps track of time
+   * @param unsorted card pile
+   * @return sorted card pile
+   */
   public static CardPile sort(CardPile unsorted) {
     
     ArrayDeque<CardPile> queue = new ArrayDeque<CardPile>();
